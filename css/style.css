@@ -84,17 +84,23 @@ body{ font:16px/26px Helvetica, Helvetica Neue, Arial; }
     ALL: Orange Theme
    =================== */
 
-#header-container{ border-bottom: 20px solid #e44d26; }
-#footer-container{ border-top:    20px solid #e44d26; }
-#main aside      { border-top:    20px solid #e44d26; }
+#header-container{ border-bottom: 2px solid #a64500; }
+#footer-container{ border-top:    2px solid #a64500; }
+#main aside      { border-top:    2px solid #a64500; }
 
 #header-container,
 #footer-container,
 #main aside{
-	background:#f16529;
+	background:#FFF0F0;
 }
 
-#title{ color:white; }
+#title{ 
+	padding-left: 246px;
+	background: url('../images/Logo.png') no-repeat;
+	color:white;
+	margin: 10px 0px;
+	height: 50px; 
+}
 
 ::-moz-selection { background: #f16529; color: #fff; text-shadow: none; }
 ::selection      { background: #f16529; color: #fff; text-shadow: none; }
@@ -157,8 +163,23 @@ nav a:hover{
    Author:
    ========================================================================== */
 
-
-
+section.col {
+	width:45%;
+	font-size:12px;
+	line-height: 1.2em;
+	float: left;
+	margin: 0 10px;
+}
+section.col h2 {
+	display:inline-block;
+	height:.9em;
+	float:left;
+	margin: 0 10px 0 0;
+	font-size:2.5em;
+}
+section.col p {
+	margin-top: 0px;
+}
 
 
 

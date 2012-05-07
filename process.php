@@ -17,12 +17,54 @@
 </head>
 <body>
 	<?php 
-		$requireAuth = false;
+		$requireAuth = true;
 		require_once("includes/fbAuthorize.php");
 	?>
+	<!--<div id="fb-root"></div>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '380172018700591', // App ID
+	      channelUrl : '//localhost:8888/Mustached/channel.html', // Channel File
+	      status     : true, // check login status
+	      cookie     : true, // enable cookies to allow the server to access the session
+	      xfbml      : true  // parse XFBML
+	    });
+	
+	    // Additional initialization code here
+	    FB.Canvas.setAutoGrow();
+	    /*FB.login(function(response) {
+	      // handle the response
+	    }, {scope: 'email,user_likes'});*/
+	   FB.login(function(response) {
+		if (response.authResponse) {
+			$("input[name='FB.uid']").val(response.authResponse.uid);
+			$("input[name='FB.accessToken']").val(response.authResponse.accessToken);
+		}
+	   });
+	  };
+	
+	  // Load the SDK Asynchronously
+	  (function(d){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document));
+	</script>-->
 	<div id="header-container">
 		<header class="wrapper clearfix">
 			<h1 id="title"><span class="ir">Mustache'd</span></h1>
+			<!--
+			<nav>
+							<ul>
+								<li><a href="#">nav ul li a</a></li>
+								<li><a href="#">nav ul li a</a></li>
+								<li><a href="#">nav ul li a</a></li>
+							</ul>
+						</nav>-->
+			
 		</header>
 	</div>
 	<div id="main-container">
@@ -39,9 +81,17 @@
 				</section>
 				<div class="clearfix"></div>
 				<section id="step-container">
-					<h2 class="get-started"><a href="<?php echo $loginUrl ?>" target="_top">Get Started</a></h2>
+					<?php include("step1.php") ?>
+					<?php //include("step2.php") ?>
 				</section>
 			</article>
+			
+			<!--
+			<aside>
+				<h3>aside</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+			</aside>-->
+			
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
 

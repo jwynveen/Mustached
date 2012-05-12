@@ -76,4 +76,4 @@ if ($user) {
 
 <input type="hidden" name="access_token" value="<?php echo $accessToken ?>" />
 <!--<input type="hidden" name="picFilename" value="<?php echo $user_profile['picture'] ?>" />-->
-<a href="step2.php" class="next">Next</a>
+<a href="step2.php" class="next step1">Next</a>

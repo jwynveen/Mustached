@@ -28,6 +28,14 @@ var App = {
 
 $(function(){
 	$("#step-container").on("click", ".next", function(e){
+		//validate first step
+		if ($(this).hasClass("step1")){
+			var anyChecked = $("input[name=photo]:checked").length > 0;
+			if (!anyChecked){
+				alert("You've gotta select a photo or else you can't get mustache'd.");
+				return false;
+			}
+		}
 		//validate if last step
 		if ($(this).hasClass("share")){
 			var anyChecked = $("input[type=checkbox]:checked").length > 0;

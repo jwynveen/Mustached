@@ -1,4 +1,10 @@
 <?php
+	require_once("includes/facebook.php");
+	$accessToken = $_POST['access_token'];
+	if (!$facebook) {
+		$facebook = new Facebook();
+		$facebook->setAccessToken($accessToken);
+	}
 	//ini_set('memory_limit', '-1');
 	$picFilename = $_POST["picFilename"];
 	$mustacheFilename = $_POST["mustache-filename"][0];
@@ -16,7 +22,7 @@
 	if ($mustacheHeight == NULL) $mustacheHeight = 37;
 	
 	//create image objects
-	$bg = imagecreatefromgif($picFilename);
+	$bg = imagecreatefromjpeg($picFilename);
 	$img = imagecreatefrompng($mustacheFilename);
 	$canvas = imagecreatetruecolor(imagesx($bg), imagesy($bg));
 	imagealphablending($canvas, true);
@@ -55,10 +61,12 @@
 	<a href="step4.php" class="share next">Share it!</a>
 </div>
 
+<input type="text" name="picFilename" value="<?php echo $picFilename ?>" />
 <input type="text" name="generatedFilename" value="<?php echo $generatedFilename ?>" />
 <input type="text" name="mustache-filename[0]" value="<?php echo $mustacheFilename ?>" />
 <input type="text" name="mustache-x[0]" value="<?php echo $mustacheX ?>" />
 <input type="text" name="mustache-y[0]" value="<?php echo $mustacheY ?>" />
 <input type="text" name="mustache-width[0]" value="<?php echo $mustacheWidth ?>" />
 <input type="text" name="mustache-height[0]" value="<?php echo $mustacheHeight ?>" />
+<input type="hidden" name="access_token" value="<?php echo $accessToken ?>" />
 <a href="step4.php" class="next">Next</a>

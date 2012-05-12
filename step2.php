@@ -1,5 +1,17 @@
 <?php
-	$picFilename = $_POST["picFilename"];
+	require_once("includes/facebook.php");
+	$accessToken = $_POST['access_token'];
+	if (!$facebook) {
+		$facebook = new Facebook();
+		$facebook->setAccessToken($accessToken);
+	}
+	$photo = $_POST['photo'];
+	if ($photo) {
+		$picture = $facebook->api($photo);
+		$picFilename = $picture['source'];
+	} else {
+		$picFilename = $_POST['picFilename'];
+	}
 	$mustacheFilename = $_POST["mustache-filename"][0];
 	$mustacheX = $_POST["mustache-x"][0];
 	$mustacheY = $_POST["mustache-y"][0];
@@ -19,18 +31,19 @@
 ?>
 
 <h2>Step 2</h2>
-<p><input type="text" value="<?php echo $picFilename ?>" /></p>
-<div id="profile-pic" style="position:relative;width:<?php echo $width ?>px;height:<?php echo $height ?>px;">
+<div id="picture-canvas" style="position:relative;width:<?php echo $width ?>px;height:<?php echo $height ?>px;">
 	<img src="<?php echo $picFilename ?>" style="width:<?php echo $width ?>px;height:<?php echo $height ?>px;" />
 	<div class="draggable resizable" style="border:1px dotted black;position:absolute;left:<?php echo $mustacheX ?>px;top:<?php echo $mustacheY ?>px;width:<?php echo $mustacheWidth ?>px;height:<?php echo $mustacheHeight ?>px;">
 		<img src="<?php echo $mustacheFilename ?>" style="width:100%;height:100%;" />
 	</div>
 </div>
-<div id="pic-selector">(mustache selector will be here)</div>
+<div id="mustache-selector">(mustache selector will be here)</div>
 
+<input type="text" name="picFilename" value="<?php echo $picFilename ?>" />
 <input type="text" name="mustache-filename[0]" value="<?php echo $mustacheFilename ?>" />
 <input type="text" name="mustache-x[0]" value="<?php echo $mustacheX ?>" />
 <input type="text" name="mustache-y[0]" value="<?php echo $mustacheY ?>" />
 <input type="text" name="mustache-width[0]" value="<?php echo $mustacheWidth ?>" />
 <input type="text" name="mustache-height[0]" value="<?php echo $mustacheHeight ?>" />
+<input type="hidden" name="access_token" value="<?php echo $accessToken ?>" />
 <a href="step3.php" class="next">Next</a>

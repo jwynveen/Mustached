@@ -4,19 +4,9 @@ http://www.elated.com/articles/smooth-rotatable-images-css3-jquery/
 http://stackoverflow.com/questions/3438568/jquery-css-rotate-div-by-drag-mouse-event
 */
 var App = {
-	hideStep: function(){
-		
-	},
-	showStep: function(content){
-		container.html(data);
-		container.fadeIn();
-	},
-	getStepContent: function(url, data) {
-		
-	},
 	initDraggable: function() {
 		$(".draggable").draggable({
-			containment: "#profile-pic", 
+			containment: "#picture-canvas", 
 			scroll: false,
 			stop: function (event, ui) {
 				$('input[name="mustache-x[0]"]').val(ui.position.left);
@@ -26,7 +16,7 @@ var App = {
 	},
 	initResizable: function() {
 		$( ".resizable" ).resizable({
-			containment: "#profile-pic",
+			containment: "#picture-canvas",
 			aspectRatio: true,
 			stop: function(event, ui) {
 				$('input[name="mustache-width[0]"]').val(ui.size.width);
@@ -57,6 +47,8 @@ $(function(){
 				container.fadeIn(function(){
 					App.initDraggable();
 					App.initResizable();
+					FB.Canvas.setSize();
+					FB.Canvas.scrollTo(0,200);
 				});
 			});
 		});

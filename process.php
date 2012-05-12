@@ -20,39 +20,6 @@
 		$requireAuth = true;
 		require_once("includes/fbAuthorize.php");
 	?>
-	<!--<div id="fb-root"></div>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '380172018700591', // App ID
-	      channelUrl : '//localhost:8888/Mustached/channel.html', // Channel File
-	      status     : true, // check login status
-	      cookie     : true, // enable cookies to allow the server to access the session
-	      xfbml      : true  // parse XFBML
-	    });
-	
-	    // Additional initialization code here
-	    FB.Canvas.setAutoGrow();
-	    /*FB.login(function(response) {
-	      // handle the response
-	    }, {scope: 'email,user_likes'});*/
-	   FB.login(function(response) {
-		if (response.authResponse) {
-			$("input[name='FB.uid']").val(response.authResponse.uid);
-			$("input[name='FB.accessToken']").val(response.authResponse.accessToken);
-		}
-	   });
-	  };
-	
-	  // Load the SDK Asynchronously
-	  (function(d){
-	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement('script'); js.id = id; js.async = true;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     ref.parentNode.insertBefore(js, ref);
-	   }(document));
-	</script>-->
 	<div id="header-container">
 		<header class="wrapper clearfix">
 			<h1 id="title"><span class="ir">Mustache'd</span></h1>
@@ -105,6 +72,6 @@
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
-<script src="js/script.js"></script>
+<script src="js/script.js?v=1"></script>
 </body>
 </html>

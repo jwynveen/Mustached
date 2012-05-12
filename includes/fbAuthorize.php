@@ -12,7 +12,7 @@ $facebook = new Facebook(array(
 
 $params = array(
 	'client_id'    => $appId,
-	'scope' => 'read_stream, friends_likes',
+	'scope' => 'user_photos, user_photo_video_tags',
 	'redirect_uri' => $canvasPage.'process.php',
 	'state' => 'some-generated-string-I-need-to-validate'
 );
@@ -34,3 +34,37 @@ $accessToken = $facebook->getAccessToken();
 		<script>window.top.location = '<?php echo $loginUrl ?>';</script>
 	<?php endif ?>
 <?php endif ?>
+
+	<div id="fb-root"></div>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '<?php echo $appId ?>', // App ID
+	      channelUrl : '<?php echo $canvasUrl ?>/channel.html', // Channel File
+	      status     : true, // check login status
+	      cookie     : true, // enable cookies to allow the server to access the session
+	      xfbml      : true  // parse XFBML
+	    });
+	
+	    // Additional initialization code here
+	    FB.Canvas.setAutoGrow();
+	    /*FB.login(function(response) {
+	      // handle the response
+	    }, {scope: 'email,user_likes'});*/
+	   /*FB.login(function(response) {
+		if (response.authResponse) {
+			$("input[name='FB.uid']").val(response.authResponse.uid);
+			$("input[name='FB.accessToken']").val(response.authResponse.accessToken);
+		}
+	   });*/
+	  };
+	
+	  // Load the SDK Asynchronously
+	  (function(d){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document));
+	</script>

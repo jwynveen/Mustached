@@ -15,7 +15,7 @@
 	$generatedFilename = "files/temp.jpg";
 	
 	if ($picFilename == NULL) $picFilename = "images/profilePic.gif";
-	if ($mustacheFilename == NULL) $mustacheFilename = "images/Mustache1.png";
+	if ($mustacheFilename == NULL) $mustacheFilename = "images/Connoisseur.png";
 	if ($mustacheX == NULL) $mustacheX = 10;
 	if ($mustacheY == NULL) $mustacheY = 10;
 	if ($mustacheWidth == NULL) $mustacheWidth = 148;

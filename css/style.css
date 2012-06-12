@@ -181,7 +181,22 @@ section.col p {
 	margin-top: 0px;
 }
 
+#mustache-selector ul { 
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+#mustache-selector li {
+	float: left;
+	width: 100px;
+	padding: 5px;
+	margin: 0;
+}
 
+#mustache-selector li img {
+	width: 100px;
+	cursor:pointer;
+}
 
 
 

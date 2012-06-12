@@ -63,7 +63,23 @@ $(function(){
 		return false;
 	});
 	
-	
+	$("#mustache-selector li img").click
+	$("#step-container").on("click", "#mustache-selector li img", function(e){
+		var mustache = $(this);
+		$(".draggable img, .resizable img").attr("src", mustache.prop("src"));
+		
+		$(".draggable, .resizable")
+			.css("width", "200px")
+			.css("height", mustache.attr("data-height"));
+		
+		var item = $(".draggable img")[0];
+		
+		$('input[name="mustache-width[0]"]').val(item.width);
+		$('input[name="mustache-height[0]"]').val(item.height);
+		
+		App.initDraggable();
+		App.initResizable();
+	});
 	App.initDraggable();
 	App.initResizable();
 });

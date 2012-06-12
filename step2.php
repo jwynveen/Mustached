@@ -19,7 +19,7 @@
 	$mustacheHeight = $_POST["mustache-height"][0];
 	
 	if ($picFilename == NULL) $picFilename = "images/profilePic.gif";
-	if ($mustacheFilename == NULL) $mustacheFilename = "images/Mustache1.png";
+	if ($mustacheFilename == NULL) $mustacheFilename = "images/Connoisseur.png";
 	list($width, $height, $type, $attr) = getimagesize($picFilename);
 	
 	if($mustacheWidth == NULL && $mustacheHeight == null)
@@ -37,7 +37,20 @@
 		<img src="<?php echo $mustacheFilename ?>" style="width:100%;height:100%;" />
 	</div>
 </div>
-<div id="mustache-selector">(mustache selector will be here)</div>
+<div id="mustache-selector">
+	<ul>
+		<li><img src="images/Abrakadabra.png" alt="Abrakadabra" data-height="70px" /></li>
+		<li><img src="images/AfterEight.png" alt="After Eight" data-height="20px" /></li>
+		<li><img src="images/BoxCar.png" alt="Box Car" data-height="45px" /></li>
+		<li><img src="images/BusinessMan.png" alt="Business Man" data-height="85px" /></li>
+		<li><img src="images/Connoisseur.png" alt="Connoisseur" data-height="65px" /></li>
+		<li><img src="images/Regent.png" alt="Regent" data-height="35px" /></li>
+		<li><img src="images/RockStar.png" alt="RockStar" data-height="100px" /></li>
+		<li><img src="images/Trucker.png" alt="Trucker" data-height="130px" /></li>
+		<li><img src="images/UndercoverBrother.png" alt="Undercover Brother" data-height="55px" /></li>
+		<li><img src="images/Wispy.png" alt="Wispy" data-height="20px" /></li>
+	</ul>
+</div>
 
 <input type="text" name="picFilename" value="<?php echo $picFilename ?>" />
 <input type="text" name="mustache-filename[0]" value="<?php echo $mustacheFilename ?>" />
